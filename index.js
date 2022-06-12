@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const mysql = require('mysql')
+var cors = require('cors'); 
+app.use(cors());
 
 const db = mysql.createConnection({
 
@@ -9,7 +11,7 @@ const db = mysql.createConnection({
     user: "root",
     password: "",
     database: "tp_api",
-
+    
   })
 
 db.connect(function(err) {
@@ -64,6 +66,6 @@ app.delete('/personnages/delete/:id', (req,res) => {
     }) 
 })
 
-app.listen(8081, () => {
+app.listen(8082, () => {
     console.log("Serveur à l'écoute")
 })
