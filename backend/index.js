@@ -41,7 +41,7 @@ app.get('/personnages/:id', (req,res) => {
 })
 
 app.post('/personnages', (req,res) => {
-    db.query("INSERT into personnages (nom,race,description,technique) values (?)", [[req.body.nom, req.body.race, req.body.description, req.body.technique]], (err,result) => {
+    db.query("INSERT into personnages (nom,race,description,technique,image) values (?)", [[req.body.nom, req.body.race, req.body.description, req.body.technique, req.body.image]], (err,result) => {
         if (err) 
             throw err
         res.status(200).json(result)
